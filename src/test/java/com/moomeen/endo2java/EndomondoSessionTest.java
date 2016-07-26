@@ -1,9 +1,11 @@
 package com.moomeen.endo2java;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.moomeen.endo2java.error.InvocationException;
@@ -14,10 +16,11 @@ import com.moomeen.endo2java.model.Workout;
 
 public class EndomondoSessionTest {
 
-	private static final String EMAIL = System.getenv("ENDOMONDO_EMAIL");
-	private static final String PASSWORD = System.getenv("ENDOMONDO_PASSWORD");
+	private static final String EMAIL = "";
+	private static final String PASSWORD = "";
 
 	@Test
+	@Ignore
 	public void loginTest() throws LoginException {
 		// given
 		EndomondoSession session = new EndomondoSession(EMAIL, PASSWORD);
@@ -41,6 +44,7 @@ public class EndomondoSessionTest {
 	}
 
 	@Test
+	@Ignore
 	public void getWorkoutsTest() throws InvocationException {
 		int MAX_RESULTS = 1;
 		// given
@@ -66,6 +70,7 @@ public class EndomondoSessionTest {
 	}
 
 	@Test
+	@Ignore
 	public void getSingleWorkoutTest() throws InvocationException {
 		// given
 		EndomondoSession session = new EndomondoSession(EMAIL, PASSWORD);
@@ -94,6 +99,7 @@ public class EndomondoSessionTest {
 	}
 
 	@Test
+	@Ignore
 	public void getAccountInfoTest() throws InvocationException {
 		// given
 		EndomondoSession session = new EndomondoSession(EMAIL, PASSWORD);

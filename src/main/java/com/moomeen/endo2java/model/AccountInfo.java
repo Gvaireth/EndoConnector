@@ -1,6 +1,6 @@
 package com.moomeen.endo2java.model;
 
-import static com.moomeen.endo2java.model.Constants.*;
+import static com.moomeen.endo2java.model.Constants.DATE_FORMAT;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
@@ -40,27 +40,27 @@ public class AccountInfo {
 	private DateTimeZone timeZone;
 
 	@JsonProperty("sync_time")
-	public void setSyncTime(String s){
+	public void setSyncTime(String s) {
 		this.syncTime = DateTime.parse(s, DateTimeFormat.forPattern(DATE_FORMAT));
 	}
 
 	@JsonProperty("date_of_birth")
-	public void setDateOfBirth(String s){
+	public void setDateOfBirth(String s) {
 		this.dateOfBirth = DateTime.parse(s, DateTimeFormat.forPattern(DATE_FORMAT));
 	}
 
 	@JsonProperty("weight_time")
-	public void setWeightTime(String s){
+	public void setWeightTime(String s) {
 		this.weightTime = DateTime.parse(s, DateTimeFormat.forPattern(DATE_FORMAT));
 	}
 
 	@JsonProperty("created_time")
-	public void setCreatedTime(String s){
+	public void setCreatedTime(String s) {
 		this.createdTime = DateTime.parse(s, DateTimeFormat.forPattern(DATE_FORMAT));
 	}
-	
+
 	@JsonProperty("time_zone")
-	public void setTimeZone(String s){
+	public void setTimeZone(String s) {
 		this.timeZone = DateTimeZone.forID(s);
 	}
 
@@ -135,4 +135,14 @@ public class AccountInfo {
 	public DateTimeZone getTimeZone() {
 		return timeZone;
 	}
+
+	@Override
+	public String toString() {
+		return "AccountInfo [weight=" + weight + ", phone=" + phone + ", sex=" + sex + ", syncTime=" + syncTime
+				+ ", dateOfBirth=" + dateOfBirth + ", loungeMember=" + loungeMember + ", favoriteSport=" + favoriteSport
+				+ ", favoriteSport2=" + favoriteSport2 + ", units=" + units + ", country=" + country + ", id=" + id
+				+ ", firstName=" + firstName + ", lastName=" + lastName + ", pictureId=" + pictureId + ", weightTime="
+				+ weightTime + ", height=" + height + ", createdTime=" + createdTime + ", timeZone=" + timeZone + "]";
+	}
+
 }

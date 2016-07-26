@@ -1,7 +1,8 @@
 package com.moomeen.endo2java.model;
 
-import static com.moomeen.endo2java.model.Constants.*;
+import static com.moomeen.endo2java.model.Constants.DATE_FORMAT;
 
+import java.io.Serializable;
 import java.util.Map;
 
 import org.joda.time.DateTime;
@@ -12,8 +13,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Workout {
+public class Workout implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long id;
 	private Duration duration;
 	private Double distance;
@@ -39,24 +44,24 @@ public class Workout {
 	private Integer peptalks;
 	private Integer likes;
 	private Integer comments;
-	
+
 	@JsonProperty("polyline_encoded_small")
 	private String polyLineEncoded;
 
 	@JsonProperty("lcp_count")
-    public void setLcpCount(Map<String, Object> lcpCount) {
+	public void setLcpCount(Map<String, Object> lcpCount) {
 		peptalks = (Integer) lcpCount.get("peptalks");
 		likes = (Integer) lcpCount.get("likes");
 		comments = (Integer) lcpCount.get("comments");
-    }
+	}
 
 	@JsonProperty("duration")
-	public void setDuration(Long duration){
+	public void setDuration(Long duration) {
 		this.duration = new Duration(duration * 1000);
 	}
 
 	@JsonProperty("start_time")
-	public void setStartTime(String startTime){
+	public void setStartTime(String startTime) {
 		this.startTime = DateTime.parse(startTime, DateTimeFormat.forPattern(DATE_FORMAT));
 	}
 
@@ -135,4 +140,15 @@ public class Workout {
 	public String getPolyLineEncoded() {
 		return polyLineEncoded;
 	}
+
+	@Override
+	public String toString() {
+		return "Workout [id=" + id + ", duration=" + duration + ", distance=" + distance + ", burgersBurned="
+				+ burgersBurned + ", sport=" + sport + ", startTime=" + startTime + ", calories=" + calories + ", live="
+				+ live + ", altitudeMin=" + altitudeMin + ", altitudeMax=" + altitudeMax + ", descent=" + descent
+				+ ", ascent=" + ascent + ", ownerId=" + ownerId + ", speedAvg=" + speedAvg + ", speedMax=" + speedMax
+				+ ", peptalks=" + peptalks + ", likes=" + likes + ", comments=" + comments + ", polyLineEncoded="
+				+ polyLineEncoded + "]";
+	}
+
 }

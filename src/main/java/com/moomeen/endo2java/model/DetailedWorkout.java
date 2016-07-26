@@ -7,6 +7,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class DetailedWorkout extends Workout {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer weatherType;
 	private String feedStory;
 
@@ -18,7 +22,7 @@ public class DetailedWorkout extends Workout {
 	}
 
 	@JsonProperty("feed")
-	public void setFeed(Map<String, Object> feed){
+	public void setFeed(Map<String, Object> feed) {
 		this.feedStory = (String) feed.get("story");
 	}
 
@@ -32,6 +36,11 @@ public class DetailedWorkout extends Workout {
 
 	public List<Point> getPoints() {
 		return points;
+	}
+
+	@Override
+	public String toString() {
+		return "DetailedWorkout [weatherType=" + weatherType + ", feedStory=" + feedStory + ", points=" + points + "]";
 	}
 
 }
