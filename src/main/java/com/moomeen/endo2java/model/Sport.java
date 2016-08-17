@@ -86,7 +86,7 @@ public enum Sport {
 																																																																																													94,
 																																																																																													"Treadmill walking"),
 
-	UNKNONWN(999, "Unknown"), ALL(1000, "Unknown");
+	UNKNONWN(999, "Unknown"), ALL(1000, "All");
 
 	private int number;
 	private String desc;
