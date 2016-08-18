@@ -100,6 +100,10 @@ public enum Sport {
 		return desc;
 	}
 
+	public int getNumber() {
+		return number;
+	}
+
 	@JsonCreator
 	public static Sport fromNumber(int number) {
 		for (Sport item : Sport.values()) {
